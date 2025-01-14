@@ -1,50 +1,38 @@
-# Welcome to your Expo app 👋
-
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# Welcome to the EXPO Research App
 
 ## Get started
 
 1. Install dependencies
 
-   ```bash
    npm install
-   ```
 
-2. Start the app
+2. Start the App
 
-   ```bash
-    npx expo start
-   ```
+   npm run start
+   and then open the app on the required platform
 
-In the output, you'll find options to open the app in a
+## EAS Commands
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+1. Install EAS CLI
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+   npm install -g eas-cli
 
-## Get a fresh project
+2. Login to the EAS CLI
 
-When you're ready, run:
+   eas login
 
-```bash
-npm run reset-project
-```
+3. Check the current user
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+   eas whoami
 
-## Learn more
+4. Build app from the cloud
 
-To learn more about developing your project with Expo, look at the following resources:
+   eas build
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+5. Build app locally for android or ios with the selected profile config which present in the eas.json file build section
 
-## Join the community
+   eas build --profile profile-name --platform android --local
 
-Join our community of developers creating universal apps.
+## Misc
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- eas build command by default ignores files listed in .gitignore.
