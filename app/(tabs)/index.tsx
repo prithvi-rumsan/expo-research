@@ -18,6 +18,15 @@ import UsaFlag from "../../assets/images/flags/usa.png";
 import { useEffect } from "react";
 
 export default function HomeScreen() {
+  console.log(
+    "google client id web:",
+    process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID_WEB
+  );
+  console.log(
+    "google client id android:",
+    process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID_ANDROID
+  );
+
   console.log(getLocales(), getCalendars());
 
   const { i18n, t } = useTranslation();

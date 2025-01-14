@@ -23,6 +23,20 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
+    const scriptTag = document.createElement("script");
+    scriptTag.src = "https://accounts.google.com/gsi/client";
+    scriptTag.async = true;
+    scriptTag.onload = () => {
+      console.log("google script loaded");
+    };
+    scriptTag.onerror = () => {
+      console.error("Failed to load Google script");
+    };
+
+    document.body.appendChild(scriptTag);
+  }, []);
+
+  useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
     }

@@ -33,6 +33,10 @@
 
    eas build --profile profile-name --platform android --local
 
+6. Check credentials
+
+   eas credentials
+
 ## Misc
 
 - eas build command by default ignores files listed in .gitignore.
