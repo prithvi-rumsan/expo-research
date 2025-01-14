@@ -37,6 +37,9 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="location" options={{ headerShown: false }} />
+        <Stack.Screen name="sms" options={{ headerShown: false }} />
+        <Stack.Screen name="file-picker" options={{ headerShown: false }} />
+        <Stack.Screen name="notifications" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />

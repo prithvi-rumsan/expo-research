@@ -5,7 +5,7 @@ import * as SMS from "expo-sms";
 import { useEffect, useState } from "react";
 import { Button, StyleSheet } from "react-native";
 
-export default function Sms() {
+export default function SmsScreen() {
   const [isSmsAvailable, setIsSmsAvailable] = useState(false);
   const handleSms = async () => {
     console.log("Sending SMS");
