@@ -27,6 +27,8 @@ export default function TabTwoScreen() {
         onPress={() => router.push("/file-picker")}
         title="Goto File Picker"
       />
+
+      <Button onPress={() => router.push("/sms")} title="Goto SMS" />
     </ParallaxScrollView>
   );
 }

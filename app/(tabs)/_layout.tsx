@@ -63,6 +63,15 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="sms"
+        options={{
+          title: "Sms",
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="envelope.fill" color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }

@@ -18,6 +18,7 @@ const MAPPING = {
   "location.fill": "gps-fixed",
   "folder.fill": "folder",
   "app.fill": "apps",
+  "envelope.fill": "email",
 } as Partial<
   Record<
     import("expo-symbols").SymbolViewProps["name"],

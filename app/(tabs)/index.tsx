@@ -23,8 +23,8 @@ export default function HomeScreen() {
   const { i18n, t } = useTranslation();
 
   const flags = [
-    { component: BrazilFlag, lang: "pt-BR", name: "Brasil" },
     { component: UsaFlag, lang: "en-US", name: "USA" },
+    { component: BrazilFlag, lang: "pt-BR", name: "Brasil" },
   ];
 
   const currentLanguage = i18n.language;
