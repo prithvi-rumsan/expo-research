@@ -16,6 +16,8 @@ const MAPPING = {
   qrcode: "qr-code",
   "bell.fill": "notifications",
   "location.fill": "gps-fixed",
+  "folder.fill": "folder",
+  "app.fill": "apps",
 } as Partial<
   Record<
     import("expo-symbols").SymbolViewProps["name"],
