@@ -39,6 +39,11 @@ export default function OthersScreen() {
         onPress={() => router.push("/analytics")}
         title="Goto Analytics"
       />
+
+      <Button
+        onPress={() => router.push("/async-storage")}
+        title="Goto Asnyc Storage"
+      />
     </ParallaxScrollView>
   );
 }
