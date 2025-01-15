@@ -34,6 +34,11 @@ export default function OthersScreen() {
         onPress={() => router.push("/notifications")}
         title="Goto Notifications"
       />
+
+      <Button
+        onPress={() => router.push("/analytics")}
+        title="Goto Analytics"
+      />
     </ParallaxScrollView>
   );
 }

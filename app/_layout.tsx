@@ -40,6 +40,7 @@ export default function RootLayout() {
         <Stack.Screen name="sms" options={{ headerShown: false }} />
         <Stack.Screen name="file-picker" options={{ headerShown: false }} />
         <Stack.Screen name="notifications" options={{ headerShown: false }} />
+        <Stack.Screen name="analytics" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />
