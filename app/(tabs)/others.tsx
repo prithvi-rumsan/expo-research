@@ -19,7 +19,7 @@ export default function OthersScreen() {
       }
     >
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Other Features</ThemedText>
+        <ThemedText type="title">Other Featuresss</ThemedText>
       </ThemedView>
       <Button onPress={() => router.push("/location")} title="Goto Location" />
 
@@ -44,6 +44,8 @@ export default function OthersScreen() {
         onPress={() => router.push("/async-storage")}
         title="Goto Asnyc Storage"
       />
+
+      <Button onPress={() => router.push("/nfc")} title="Goto NFC" />
     </ParallaxScrollView>
   );
 }
