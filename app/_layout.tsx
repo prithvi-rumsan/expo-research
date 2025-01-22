@@ -3,6 +3,8 @@ import {
   DefaultTheme,
   ThemeProvider,
 } from "@react-navigation/native";
+import "@/global.css";
+import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -33,19 +35,19 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="location" options={{ headerShown: false }} />
-        <Stack.Screen name="sms" options={{ headerShown: false }} />
-        <Stack.Screen name="file-picker" options={{ headerShown: false }} />
-        <Stack.Screen name="notifications" options={{ headerShown: false }} />
-        <Stack.Screen name="analytics" options={{ headerShown: false }} />
-        <Stack.Screen name="async-storage" options={{ headerShown: false }} />
-        <Stack.Screen name="nfc" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <GluestackUIProvider mode="light"><ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="location" options={{ headerShown: false }} />
+          <Stack.Screen name="sms" options={{ headerShown: false }} />
+          <Stack.Screen name="file-picker" options={{ headerShown: false }} />
+          <Stack.Screen name="notifications" options={{ headerShown: false }} />
+          <Stack.Screen name="analytics" options={{ headerShown: false }} />
+          <Stack.Screen name="async-storage" options={{ headerShown: false }} />
+          <Stack.Screen name="nfc" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+        <StatusBar style="auto" />
+      </ThemeProvider></GluestackUIProvider>
   );
 }
