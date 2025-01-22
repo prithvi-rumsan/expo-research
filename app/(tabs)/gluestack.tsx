@@ -55,11 +55,19 @@ import {
 import { VStack } from "@/components/ui/vstack";
 import React, { useEffect, useState } from "react";
 import { Image, StyleSheet } from "react-native";
+import { useForm, Controller } from "react-hook-form";
+import { Text } from "@/components/ui/text";
 
 export default function App() {
   const [isReady, setIsReady] = useState(false);
   const [isInvalid, setIsInvalid] = useState(false);
   const [inputValue, setInputValue] = useState("12345");
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm();
 
   const toast = useToast();
   const [toastId, setToastId] = useState(0);
@@ -89,13 +97,20 @@ export default function App() {
     });
   };
 
-  const handleSubmit = () => {
+  const onSubmit = () => {
     if (inputValue.length < 6) {
       setIsInvalid(true);
     } else {
       handleToast();
       setIsInvalid(false);
     }
+  };
+
+  const onSubmitRhf = async () => {
+    console.log("SUBMIT RHF FORM");
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    console.log("FORM ERRRORS", errors);
+    handleToast();
   };
 
   async function delay() {
@@ -308,9 +323,106 @@ export default function App() {
             <Button
               className="w-full mt-4 bg-success-500"
               size="md"
-              onPress={handleSubmit}
+              onPress={onSubmit}
             >
               <ButtonText className="">Submit</ButtonText>
+            </Button>
+          </VStack>
+
+          <Heading size="3xl" className="mt-4">
+            React Hook Form Integration
+          </Heading>
+          <VStack className="w-full rounded-md border border-background-200 p-4">
+            <Text>Name*</Text>
+            <Controller
+              name="name"
+              control={control}
+              defaultValue=""
+              rules={{ required: "Name is required" }}
+              render={({ field: { onChange, value } }) => (
+                <Input
+                  variant="outline"
+                  size="md"
+                  isDisabled={false}
+                  isInvalid={!!errors.name}
+                  isReadOnly={false}
+                >
+                  <InputField
+                    placeholder="Enter name..."
+                    value={value}
+                    onChangeText={onChange}
+                  />
+                </Input>
+              )}
+            />
+            {errors.name && (
+              <Text className="text-error-800"> {errors?.name?.message}</Text>
+            )}
+
+            <Text className="mt-4">Email*</Text>
+            <Controller
+              name="email"
+              control={control}
+              defaultValue=""
+              rules={{
+                required: "Email is required",
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "Invalid email address",
+                },
+              }}
+              render={({ field: { onChange, value } }) => (
+                <Input
+                  variant="outline"
+                  size="md"
+                  isDisabled={false}
+                  isReadOnly={false}
+                  isInvalid={!!errors.email}
+                >
+                  <InputField
+                    placeholder="Enter email here..."
+                    value={value}
+                    onChangeText={onChange}
+                  />
+                </Input>
+              )}
+            />
+            {errors.email && (
+              <Text className="text-error-800"> {errors?.email?.message}</Text>
+            )}
+
+            <Text className="mt-4">Age</Text>
+            <Controller
+              name="age"
+              control={control}
+              defaultValue=""
+              render={({ field: { onChange, value } }) => (
+                <Input
+                  variant="outline"
+                  size="md"
+                  isDisabled={false}
+                  isReadOnly={false}
+                  isInvalid={!!errors.age}
+                >
+                  <InputField
+                    placeholder="Enter age..."
+                    value={value}
+                    onChangeText={onChange}
+                    keyboardType="numeric"
+                  />
+                </Input>
+              )}
+            />
+            {errors.age && <Text className=""> {errors?.age?.message}</Text>}
+
+            <Button
+              className="w-full mt-4 bg-success-500"
+              size="md"
+              onPress={handleSubmit(onSubmitRhf)}
+            >
+              <ButtonText className="">
+                {isSubmitting ? "Submitting..." : "Submit"}
+              </ButtonText>
             </Button>
           </VStack>
         </>
